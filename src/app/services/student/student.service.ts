@@ -36,6 +36,8 @@ export class StudentService {
     return this.httpClient.delete<Student>(`${this.baseUrl}/${id}`);
   }
 
-  
+  getStudentByParentId(parent_id: number): Observable<Student[]>{
+    return this.httpClient.get<Student[]>(`${this.baseUrl}/getStudentByParentId/${parent_id}`);
+  }
 
 }
