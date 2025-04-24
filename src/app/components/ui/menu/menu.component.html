@@ -1,0 +1,17 @@
+<div class="navagition">
+    <div class="logo">
+        <img class="icon" src="/logo.png" width="1" height="1"/>
+        <span class="title">Rami School</span>
+    </div>
+    <div *ngFor="let section of menuItems" class="section">
+        <span class="title">{{section.title}}</span>
+        <ul>
+            <li *ngFor="let item of section.items">
+                <a href="#">
+                    <img class="icon" [src]="item.icon" width="1" height="1"/>
+                    <span class="title">{{item.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

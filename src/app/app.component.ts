@@ -10,9 +10,12 @@ import { ResultService } from './services/result/result.service';
 import { Result } from './api/result';
 import { Classes } from './api/classes';
 import { ClassesService } from './services/classes/classes.service';
+import { AdminComponent } from "./components/dashboard/admin/admin.component";
+import { UserCardComponent } from './components/ui/user-card/user-card.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -61,12 +64,12 @@ export class AppComponent implements OnInit{
     //     console.log(this.results);
     //   }
     // });
-    this.classesServices.getAllClasees().subscribe({
-      next: (respose) => {
-        this.classes = respose;
-        console.log(this.classes);
-      }
-    })
+    // this.classesServices.getAllClasees().subscribe({
+    //   next: (respose) => {
+    //     this.classes = respose;
+    //     console.log(this.classes);
+    //   }
+    // })
     throw new Error('Method not implemented.');
   };
   

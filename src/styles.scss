@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu',sans-serif;
+}
+:root{
+    --lamaSky: #c3ebfa;
+    --lamaSkyLight: #EDF9FD;
+    --lamaPurple: #CFCEFF;
+    --lamaPurpleLight: #F1F0FF;
+    --lamaYellow: #FAE27C;
+    --lamaYellowLight: #FEFCE8;
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+body{
+    min-height: 100%;
+    min-width: 100%;
+    overflow-x: hidden;
+}
