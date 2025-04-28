@@ -1,2 +1,33 @@
-<p>count-chart works!</p>
-
+<div class="box">
+    <!-- {/* TITLE */} -->
+    <div class="title">
+      <h1>Students</h1>
+      <img class="moreImg" src="/moreDark.png" alt="" width="20" height="20" />
+    </div>
+    <!-- {/* CHART */} -->
+    <div class="chart">
+      <!-- <div> -->
+        <canvas id="doughnutchart"></canvas>
+      <!-- </div> -->
+      <img
+        src="/maleFemale.png"
+        alt=""
+        width="50"
+        height="50"
+        class="maleFemale"
+      />
+    </div>
+    <!-- {/* BOTTOM */} -->
+    <div class="bottom_pie_chart">
+      <div class="girls">
+        <div class="custom-circle"></div>
+        <h1>{{this.boysAndGirls_count[0]}}</h1>
+        <h2>Boys ({{percentage_of_boy}}%)</h2>
+      </div>
+      <div class="boys">
+        <div class="custom-circle_boys"></div>
+        <h1>{{this.boysAndGirls_count[1]}}</h1>
+        <h2>Girls ({{percentage_of_girl}}%)</h2>
+      </div>
+    </div>
+  </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Student } from '../../api/student';
+import { Student_chart } from '../../api/student_chart';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class StudentService {
 
   getStudentByParentId(parent_id: number): Observable<Student[]>{
     return this.httpClient.get<Student[]>(`${this.baseUrl}/getStudentByParentId/${parent_id}`);
+  }
+
+  getBoysAndGirlsCount(): Observable<Student_chart>{
+    return this.httpClient.get<Student_chart>(`${this.baseUrl}/getBoysAndGirlsCount`);
   }
 
 }

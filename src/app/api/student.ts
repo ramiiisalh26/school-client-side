@@ -13,8 +13,8 @@ export interface Student {
     photo: String;
     phone: String;
     grade: number;
-    classes: Classes[];
-    results: Result[];
-    assignments: Assignment[];
+    // classes: Classes[];
+    // results: Result[];
+    // assignments: Assignment[];
     address: Address;
 }
