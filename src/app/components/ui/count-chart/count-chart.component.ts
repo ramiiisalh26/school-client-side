@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Chart, Legend, plugins, registerables, scales} from 'chart.js';
+import {Chart, registerables} from 'chart.js';
 import { StudentService } from '../../../services/student/student.service';
 // import { ChartService } from '../../../services/chart/chart.service';
-import { Student_chart } from '../../../api/student_chart';
+import { Student_chart } from '../../../api/Student_chart';
+import { AttendaceService } from '../../../services/attendace/attendace.service';
 Chart.register(...registerables) 
 
 @Component({
@@ -22,9 +23,12 @@ export class CountChartComponent implements OnInit{
 
   myChart: Chart | undefined;
 
-  constructor(private studentServices: StudentService){}
+  constructor(private studentServices: StudentService,private attendanceServices: AttendaceService){}
 
   ngOnInit() {
+    this.attendanceServices.getAttendancesByDate("2025-04-28").subscribe((item) => {
+      console.log(item);
+    })
     this.loadChartData();
     this.RenderdoughnutChart(this.labels,this.boysAndGirls_count,this.color);
   }

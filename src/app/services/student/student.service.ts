@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Student } from '../../api/student';
-import { Student_chart } from '../../api/student_chart';
+import { Student_chart } from '../../api/Student_chart';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +45,7 @@ export class StudentService {
     return this.httpClient.get<Student_chart>(`${this.baseUrl}/getBoysAndGirlsCount`);
   }
 
+  getCountOfStudent(): Observable<number>{
+    return this.httpClient.get<number>(`${this.baseUrl}/getCountOfStudent`);
+  }
 }

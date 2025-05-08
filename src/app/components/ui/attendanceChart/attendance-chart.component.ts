@@ -1,0 +1,80 @@
+import { Component, OnInit } from '@angular/core';
+import { AttendaceService } from '../../../services/attendace/attendace.service';
+import { AttendaceCount } from '../../../api/attedanceCount';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
+@Component({
+  selector: 'app-attendance-chart',
+  imports: [],
+  templateUrl: './attendance-chart.component.html',
+  styleUrl: './attendance-chart.component.scss'
+})
+export class AttendanceChartComponent implements OnInit{
+  
+  studentAttendace: number[] = [];
+  labels: string[] = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
+  myChart: Chart | undefined;
+  constructor(private attendanceServices: AttendaceService){}
+
+  ngOnInit(): void {
+    this.attendanceServices.getCountOfPresentStatus().subscribe((items) => {
+      this.studentAttendace = items;
+    })
+    this.RenderBarChart(this.labels);
+    // throw new Error('Method not implemented.');
+  }
+
+  RenderBarChart(labelData: any){
+    this.myChart = new Chart('barchart',{
+      type: 'bar',
+      data:{
+        labels: labelData,
+        datasets: [{
+          label:"Present",
+          data: [10,50,40,110,56,50,40],
+          backgroundColor: [
+            '#FAE27C'
+          ],
+          borderColor: [
+            '#FAE27C'
+          ],
+          borderWidth: 1
+      },
+      {
+        label:"Absent",
+        data: [5,25,20,40,36,25,20],
+        backgroundColor: [
+          '#C3EBFA'
+        ],
+        borderColor: [
+          '#C3EBFA'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          grid: {
+            display: false 
+          }
+        },
+        y: {
+          grid: {
+            display: false 
+          }
+        }
+      },
+      responsive: true,
+      animation: false,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+      },
+      backgroundColor: 'white',
+    }
+    })
+  }
+}
