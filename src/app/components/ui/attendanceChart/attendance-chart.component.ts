@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendaceService } from '../../../services/attendace/attendace.service';
-import { AttendaceCount } from '../../../api/attedanceCount';
+import { AttendaceCount } from '../../../api/attendance/attedanceCount';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -12,14 +12,16 @@ Chart.register(...registerables);
 })
 export class AttendanceChartComponent implements OnInit{
   
-  studentAttendace: number[] = [];
+  statusCount: Map<string, number[]> = new Map();
   labels: string[] = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
   myChart: Chart | undefined;
+
   constructor(private attendanceServices: AttendaceService){}
 
   ngOnInit(): void {
-    this.attendanceServices.getCountOfPresentStatus().subscribe((items) => {
-      this.studentAttendace = items;
+    this.attendanceServices.getStatusCount().subscribe((items) => {
+      this.statusCount = new Map(Object.entries(items));
+      console.log(items);
     })
     this.RenderBarChart(this.labels);
     // throw new Error('Method not implemented.');

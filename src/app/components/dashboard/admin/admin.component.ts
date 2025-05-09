@@ -4,9 +4,10 @@ import {NabvarComponent} from '../../ui/nabvar/nabvar.component';
 import { MenuComponent } from "../../ui/menu/menu.component";
 import { CountChartComponent } from "../../ui/count-chart/count-chart.component";
 import { AttendanceChartComponent } from '../../ui/attendanceChart/attendance-chart.component';
+import { FinanceChartComponent } from '../../ui/financeChart/finance-chart.component';
 @Component({
   selector: 'app-admin',
-  imports: [UserCardComponent, MenuComponent, NabvarComponent, CountChartComponent,AttendanceChartComponent],
+  imports: [UserCardComponent, MenuComponent, NabvarComponent, CountChartComponent,AttendanceChartComponent,FinanceChartComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Attendace } from '../../api/attendance';
+import { Attendace } from '../../api/attendance/attendance';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -44,6 +44,10 @@ export class AttendaceService {
     return this.httpClient.get<Attendace[]>(`${this.baseUrl}/getAttendancesByDate/${date}`);
   }
 
+  getStatusCount(): Observable<Map<String,number[]>>{
+    return this.httpClient.get<Map<String,number[]>>(`${this.baseUrl}/getStatusCount`);
+  }
+
   getAttendancesFromToday(from: Date, to: Date, status: String): Observable<Attendace[]>{
     return this.httpClient.get<Attendace[]>(`${this.baseUrl}/getAttendancesFromToday/${from}/${to}/${status}`);
   }
@@ -52,4 +56,7 @@ export class AttendaceService {
     return this.httpClient.get<number[]>(`${this.baseUrl}/getCountOfPresentStatus`);
   }
 
+  getCountOfAbsentStatus(): Observable<number[]>{
+    return this.httpClient.get<number[]>(`${this.baseUrl}/getCountOfAbsentStatus`); 
+  }
 }

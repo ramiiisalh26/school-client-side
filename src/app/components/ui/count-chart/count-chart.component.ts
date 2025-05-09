@@ -27,7 +27,7 @@ export class CountChartComponent implements OnInit{
 
   ngOnInit() {
     this.attendanceServices.getAttendancesByDate("2025-04-28").subscribe((item) => {
-      console.log(item);
+      // console.log(item);
     })
     this.loadChartData();
     this.RenderdoughnutChart(this.labels,this.boysAndGirls_count,this.color);
