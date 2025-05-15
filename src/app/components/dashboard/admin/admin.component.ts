@@ -5,12 +5,15 @@ import { MenuComponent } from "../../ui/menu/menu.component";
 import { CountChartComponent } from "../../ui/count-chart/count-chart.component";
 import { AttendanceChartComponent } from '../../ui/attendanceChart/attendance-chart.component';
 import { FinanceChartComponent } from '../../ui/financeChart/finance-chart.component';
+import { CalendarComponent } from '../../ui/calendar/calendar.component';
+
 @Component({
   selector: 'app-admin',
-  imports: [UserCardComponent, MenuComponent, NabvarComponent, CountChartComponent,AttendanceChartComponent,FinanceChartComponent],
+  imports: [UserCardComponent, MenuComponent, NabvarComponent, CountChartComponent,AttendanceChartComponent,FinanceChartComponent,CalendarComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
+
 export class AdminComponent {
   // student!: String;
   // teacher!: String;

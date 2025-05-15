@@ -3,7 +3,7 @@
     border-radius: 0.5rem; /* 8px */
     padding: 1rem; /* 16px */
     height: 90%;
-
+    width: 100%;
     .attendence_item{
         display: flex;
         justify-content: space-between;
@@ -13,6 +13,10 @@
             font-size: 1.125rem; /* 18px */
             font-weight: 600;
         }
+    }
+    .barchart{
+        height: 95%;
+        width: 100%;
     }
 
 }

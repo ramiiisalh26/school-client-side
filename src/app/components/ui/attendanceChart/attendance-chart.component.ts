@@ -58,17 +58,20 @@ export class AttendanceChartComponent implements OnInit{
     options: {
       scales: {
         x: {
+          ticks: { autoSkip: true, maxRotation: 45 },
           grid: {
             display: false 
           }
         },
         y: {
+          beginAtZero: true,
           grid: {
             display: false 
           }
         }
       },
       responsive: true,
+      maintainAspectRatio: false,
       animation: false,
       plugins: {
         legend: {
