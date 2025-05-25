@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { RouterOutlet } from '@angular/router';
 import { StudentService } from './services/student/student.service';
 import { Student } from './api/student';
@@ -10,12 +11,17 @@ import { ResultService } from './services/result/result.service';
 import { Result } from './api/result';
 import { Classes } from './api/classes';
 import { ClassesService } from './services/classes/classes.service';
-import { AdminComponent } from "./components/dashboard/admin/admin.component";
-import { UserCardComponent } from './components/ui/user-card/user-card.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BrowserModule } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DashboardComponent],
+  imports: [ 
+      RouterOutlet, 
+      DashboardComponent,
+      RouterOutlet, 
+      DashboardComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

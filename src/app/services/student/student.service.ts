@@ -48,4 +48,9 @@ export class StudentService {
   getCountOfStudent(): Observable<number>{
     return this.httpClient.get<number>(`${this.baseUrl}/getCountOfStudent`);
   }
+
+  getStudentByClass(class_id: number): Observable<Student[]>{
+    return this.httpClient.get<Student[]>(`${this.baseUrl}/getStudentByClass/${class_id}`);
+  }
+  
 }

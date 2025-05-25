@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+
 
 *{
     margin: 0;
@@ -8,7 +10,7 @@
 }
 :root{
     --lamaSky: #c3ebfa;
-    --lamaSkyLight: #EDF9FD;
+    --lamaSkyLight: #134a5c;
     --lamaPurple: #CFCEFF;
     --lamaPurpleLight: #F1F0FF;
     --lamaYellow: #FAE27C;

@@ -1,36 +1,72 @@
 .container{
     position: relative;
     width: 100%;
+    height: 100%;
+    background: var(--lamaSkyLight);
+    
+    .right.active{
+        width: calc(100% - 80px);
+        left: 80px;
+    }
 }
 
 /* main */
 .main{
     position: absolute;
-    width: 100%;
-    margin-left: 230px;
+    width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // top: 60px;
+    left: 230px;
+    // margin-left: 230px;
     min-height: 100vh;
     background: var(--lamaSkyLight);
     transition: 0.5s;
 
-    .calender{
-        width: 28%;
-        height: 57%;
-        background: white;
-        padding: 20px;
+    .right{
         position: absolute;
-        top: 5em;
-        right: 15em;
-        border-radius: 20px;
+        top: 60px;
+        right: 0;
+        width: 30.5%;
+        min-height: 100vh;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        // flex-direction: column;
+        background: var(--lamaSkyLight);
+        transition: 0.5s;
     }
+    
 }
 .main.active{
     width: calc(100% - 80px);
     left: 80px;
 }
 
+.calender{
+    width: 98%;
+    height: 41em;
+    background: white;
+    padding: 20px;
+    position: absolute;
+    top: 1em;
+    right: 0.5em;
+    border-radius: 20px;
+}
+.announcement{
+    width: 98%;
+    height: 24.5em;
+    background: white;
+    padding: 20px;
+    position: absolute;
+    top: 42.5em;
+    right: 0.5em;
+    border-radius: 20px;
+}
 .cardBox{
     // position: relative;
-    width: 60%;
+    width: 70%;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -54,11 +90,11 @@
 
 .details{
     position: relative;
-    width: 60%;
+    width: 70%;
     padding: 10px;
     display: grid;
     height: 100%;
-    grid-template-columns: 30% 68% 47%;
+    grid-template-columns: 30% 68%;
     grid-gap: 10px;
 
     .middle_chart_pie{
@@ -229,25 +265,48 @@
 }
 /* Resposive design */
 @media (max-width: 991px){
-    .navagition{
+    .left{
         left: -300px;
     }
-    .navagition.active{
+    .left.active{
         width: 300px;
         left: 0;
     }
     .main{
         width: 100%;
         left: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .details{
+            width: 100%;
+            position: relative;
+            top: -15px;
+            z-index: 2;
+        }
+        .right{
+            width: 99%;
+            position: relative;
+            top: -47px;
+            z-index: 1;
+            height: 68em;
+        }
     }
     .main.active{
         left: 300px;
     }
     .cardBox{
+        width: 100%;
         grid-template-columns: repeat(2,1fr);
     }
 }
 @media (max-width: 768px){
+    .main{
+        width: 100%;
+        .right{
+            width: 100%;
+        }
+    }
     .details{
         grid-template-columns: repeat(1,1fr);
     }
@@ -259,8 +318,20 @@
     }
 }
 @media (max-width: 480px){
+    .main{
+        width: 100%;
+        overflow-x: hidden;
+        .right{
+            width: 100%;
+        }
+
+    }
+    
     .cardBox{
         grid-template-columns: repeat(1,1fr);
+        width: 105%;
+        position: relative;
+        right: 8px;
     }
     .cardHeader h2{
         font-size: 20px;
@@ -292,5 +363,21 @@
         /* right: 0; */
         left: initial;
         color: var(--white);
+    }
+}
+@media (max-width: 414px){         
+        
+    
+    .right{
+        width: 100%;
+        position: relative;
+        top: -82px;
+
+    }
+    
+    .cardBox{
+        width: 100%;
+        position: relative;
+        right: 8px;
     }
 }

@@ -1,0 +1,225 @@
+body {
+    background: #f6f7fa;
+    padding: 32px 0;
+}
+
+.schedule-wrapper {
+    width: 68%;
+    height: 65.5em;
+    /* margin: 0 auto; */
+    position: absolute;
+    top: 77px;
+    left: 13px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.06);
+    padding: 32px 32px 24px 32px;
+}
+
+.schedule-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.schedule-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+}
+.schedule-controls {
+    display: flex;
+    gap: 8px;
+}
+.control-btn {
+    background: #f6f7fa;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.control-btn.active, .control-btn:hover {
+    background: #e3e7f0;
+    color: #222;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    grid-template-rows: 48px repeat(11, 80px);
+    gap: 0;
+    background: #f6f7fa;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+.grid-header, .grid-hour {
+    background: #f6f7fa;
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+}
+.grid-header.empty {
+    background: transparent;
+    border: none;
+}
+.grid-hour {
+    justify-content: flex-end;
+    padding-right: 16px;
+}
+.grid-cell {
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    position: relative;
+}
+.grid-cell:last-child {
+    border-right: none;
+}
+
+.course-week {
+    background: var(--color, #e3f2fd);
+    color: #222;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 14px 10px 14px;
+    font-size: 1rem;
+    // cursor: move;
+    user-select: none;
+    z-index: 2;
+    border-radius: 10px;
+    margin: 4px 6px;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-height: 60px;
+    grid-row-end: span 1;
+}
+.course.active {
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+    z-index: 10;
+}
+.course-time {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 2px;
+}
+.course-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+}
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    cursor: ns-resize;
+    background: rgba(0,0,0,0.08);
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.course:hover .resize-handle, .course.active .resize-handle {
+    opacity: 1;
+}
+
+.day-schedule-wrapper {
+    max-width: 1100px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.06);
+    // overflow-y: hidden;
+
+}
+.day-row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #ececec;
+    min-height: 85px;
+}
+.day-hour {
+    width: 100px;
+    background: #f6f7fa;
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    border-right: 1px solid #ececec;
+}
+.day-cell {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    padding: 7px 0;
+    position: relative;
+}
+.course {
+    width: 100%;
+    background: var(--color, #e3f2fd);
+    color: #222;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 14px 10px 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin: 4px 0;
+    min-height: 100%;
+}
+.course-time-day {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 2px;
+}
+.course-name-day {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+}
+
+@media (max-width: 900px) {
+    .schedule-wrapper {
+        padding: 8px 2px;
+    }
+    .schedule-grid {
+        grid-template-columns: 60px repeat(5, 1fr);
+        grid-template-rows: 36px repeat(8, 48px);
+    }
+    .course {
+        font-size: 0.9rem;
+        padding: 6px 8px 6px 8px;
+    }
+}
+
+/* Modern fade effect for toggling views */
+.schedule-grid, .day-schedule-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+.schedule-grid.hide, .day-schedule-wrapper.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    left: 0; right: 0;
+    display: none;
+}

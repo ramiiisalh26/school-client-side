@@ -3,5 +3,5 @@ export interface Attendace {
     student_code: number;
     course_code: number;
     date: Date;
-    status: String ;
+    status: String;
 }

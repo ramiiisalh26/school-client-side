@@ -1,0 +1,69 @@
+<div class="calendar-container">
+  <div class="calendar">
+    <div class="calendar-headline">
+      <div class="calendar-headline-controls">
+        <div class="calendar-headline-control" (click)="goToPreviousMonth()">
+          «
+        </div>
+        <div
+          class="calendar-headline-control calendar-headline-control-today"
+          (click)="goToToday()"
+        >
+          {{ firstDayOfActiveMonth().monthShort }},
+          {{ firstDayOfActiveMonth().year }}
+
+        </div>
+        <div class="calendar-headline-control" (click)="goToNextMonth()">»</div>
+      </div>
+    </div>
+    <div class="calendar-weeks-grid">
+      @for (weekDay of weekDays(); track $index) {
+        <div class="calendar-weeks-grid-cell">{{ weekDay }}</div>
+      }
+    </div>
+    <div class="calendar-grid">
+      @for (dayOfMonth of daysOfMonth(); track $index) {
+        <div
+          [ngClass]="{
+            'calendar-grid-cell': true,
+            'calendar-grid-cell-active':
+              activeDay()?.toISODate() === dayOfMonth.toISODate(),
+            'calendar-grid-cell-inactive':
+              dayOfMonth.month !== firstDayOfActiveMonth().month
+          }"
+          (click)="activeDay.set(dayOfMonth)"
+        >
+          {{ dayOfMonth.day }}
+        </div>
+      }
+    </div>
+  </div>
+  <div class="schedule">
+    <div class="schedule-headline">
+      <h1>Events</h1>
+      <img src="/moreDark.png" alt="" width="20" height="20" />
+      
+    </div>
+    <div class="events">
+      <div class="event">
+        @if (activeDay() && localMeetings().length > 0) {
+          @for (meeting of localMeetings(); track $index) {
+          <div class="event-card">
+            <div class="head">
+              <h1>
+                {{meeting.title}}
+              </h1>
+              <span class="time">
+                {{meeting.startTime |formatTime}} - {{meeting.endTime |formatTime}}
+              </span>
+            </div>
+            <p class="description">
+              {{meeting.description}}
+            </p>
+          </div>
+        }
+        }
+      </div>
+    </div>
+  </div>
+</div>

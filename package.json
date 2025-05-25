@@ -19,13 +19,15 @@
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@ngneat/tailwind": "7.0.3",
+    "@syncfusion/ej2-angular-schedule": "29.2.5",
     "@tailwindcss/postcss": "^4.1.4",
     "chart.js": "^4.4.9",
     "luxon": "^3.6.1",
     "rxjs": "~7.8.0",
     "tailwind-group-even-odd": "^1.0.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "@syncfusion/ej2-material-theme": "~29.2.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.2",

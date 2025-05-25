@@ -1,0 +1,46 @@
+.finance_chart{
+    background-color: white;
+    border-radius: 0.75rem;
+    width: 148%;
+    height: 106%;
+    padding: 1rem;
+    position: absolute;
+    top: -12px;
+    .finance_item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            font-size: 1.125rem; /* 18px */
+            font-weight: 600;
+        }
+    }
+    .linechart{
+        height: 90%;
+        width: 100%;
+    }
+
+    @media (max-width: 991px){
+        
+    }
+    @media (max-width: 415px){
+        
+        
+        position: absolute;
+        top: -48px;
+        width: 149%;
+    
+    
+    // .chart{
+    //     height: 74%;
+    //     width: 90%;
+    //     position: relative;
+    //     left: 40px;
+    //     .maleFemale{
+    //         top: 56%;
+    //         left: 44%;
+    //         transform: translate(-50%, -50%);
+    //     }
+    // }
+}
+}

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Event } from '../../api/event';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class EventService {
     this.httpClient.delete<Event>(`${this.baseUrl}/${id}`);
   }
 
-  getEventsByDate(date: string): Observable<Event[]>{
+  getEventsByDate(date: String): Observable<Event[]>{
     return this.httpClient.get<Event[]>(`${this.baseUrl}/getEventsByDate/${date}`);
   }
 }

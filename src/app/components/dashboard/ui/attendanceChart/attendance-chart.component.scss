@@ -1,0 +1,50 @@
+.attendance_chart{
+    background-color: white;
+    border-radius: 0.5rem; /* 8px */
+    padding: 1rem; /* 16px */
+    height: 90%;
+    width: 100%;
+    .attendence_item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1{
+            font-size: 1.125rem; /* 18px */
+            font-weight: 600;
+        }
+    }
+    .barchart{
+        height: 95%;
+        width: 100%;
+    }
+
+
+
+
+
+
+    @media (max-width: 415px){
+        
+        
+            width: 99%;
+            position: relative;
+            top: -40px;
+            width: 100%;
+        
+        
+        // .chart{
+        //     height: 74%;
+        //     width: 90%;
+        //     position: relative;
+        //     left: 40px;
+        //     .maleFemale{
+        //         top: 56%;
+        //         left: 44%;
+        //         transform: translate(-50%, -50%);
+        //     }
+        // }
+    }
+}
+
+
