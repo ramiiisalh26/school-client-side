@@ -1,0 +1,52 @@
+<table>
+    <thead>
+        <tr>
+            <td>{{Label[0]}}</td>
+            <td>{{Label[1]}}</td>
+            <td>{{Label[2]}}</td>
+            <td>{{Label[3]}}</td>
+            <td>{{Label[4]}}</td>
+            <td>{{Label[5]}}</td>
+            <td>{{Label[6]}}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let teacher of teachers">
+            <td class="first_td">
+                <img
+                    src="/profile.png"
+                    alt=""
+                    width={10}
+                    height={10}
+                />
+                <div class="user-info">
+                    <h3>{{teacher.first_name + ' ' + teacher.last_name}}</h3>
+                    <p>{{teacher.email}}</p>
+                </div>
+            </td>
+            <td>{{teacher.teacher_id}}</td>
+            <td>
+                @for (item of teacher.courses; track $index) {
+                    {{item.name}},
+                }
+            </td>
+            <td>
+                @for (item of teacher.classes; track $index) {
+                    {{item.name}},
+                }
+            </td>
+            <td>{{teacher.phone}}</td>
+            <td>{{teacher.address.street + ', ' + teacher.address.city + ', ' + teacher.address.state + ', ' + teacher.address.country}}</td>
+            <td>
+                <div className="flex items-center gap-2">
+                    <a [routerLink]="['/details/', teacher.id]">
+                      <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaSky">
+                        <img src="/view.png" alt="" width="16" height="16" />
+                      </button>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

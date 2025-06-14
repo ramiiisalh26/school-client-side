@@ -31,5 +31,9 @@ export class TeacherService {
   deleteTeacherById(teacher_id: number): Observable<Teacher>{
     return this.httpClient.delete<Teacher>(`${this.baseUrl}/${teacher_id}`);
   }
+
+  getTeacherWithHasClassesAndCourses(teacherCode: string): Observable<Teacher[]>{
+    return this.httpClient.get<Teacher[]>(`${this.baseUrl}/getTeacherWithHasClassesAndCourses/${teacherCode}`);
+  }
   
 }

@@ -6,8 +6,7 @@ import { CalendarComponent } from '../ui/calendar/calendar.component';
 import { ScheduleComponent } from '../ui/schedule/schedule.component';
 @Component({
   selector: 'app-student',
-  imports: [MenuComponent,NabvarComponent,
-    CalendarComponent,AnnouncementComponent,ScheduleComponent],
+  imports: [CalendarComponent,AnnouncementComponent,ScheduleComponent],
   templateUrl: './student.component.html',
   styleUrl: './student.component.scss'
 })

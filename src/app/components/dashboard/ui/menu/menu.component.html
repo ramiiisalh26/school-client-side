@@ -7,7 +7,7 @@
         <span class="title" >{{section.title}}</span>
         <ul>
             <li *ngFor="let item of section.items">
-                <a href="#">
+                <a [routerLink]="item.href">
                     <img class="icon" [src]="item.icon" width="1" height="1"/>
                     <span class="title">{{item.label}}</span>
                 </a>

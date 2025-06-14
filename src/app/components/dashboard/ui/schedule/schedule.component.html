@@ -1,6 +1,6 @@
 <div class="schedule-wrapper">
     <div class="schedule-header">
-        <div class="schedule-title">Schedule (4A)</div>
+        <div class="schedule-title">{{head_title}}</div>
         <div class="schedule-controls">
             <button class="control-btn " (click)="schedule_week_btn()" id="workweek-btn">Work Week</button>
             <button class="control-btn" (click)="schedule_day_btn()" id="day-btn" >Day</button>
@@ -112,7 +112,6 @@
         
     </div>
     <div class="day-schedule-wrapper" [ngClass]="{'hide': schedule_day}" id="day-schedule-wrapper">
-        
         <div class="day-row">
             <div class="day-hour">8:00 AM</div>
             <div class="day-cell">

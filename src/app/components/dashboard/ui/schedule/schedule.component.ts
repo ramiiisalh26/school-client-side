@@ -1,4 +1,4 @@
-import { Component, computed, effect, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import { Component, computed, effect, Input, OnInit, signal, Signal, WritableSignal } from '@angular/core';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { DateTime, Interval,Info } from 'luxon';
 import { CommonModule } from '@angular/common';
@@ -6,7 +6,7 @@ import { EventService } from '../../../../services/event/event.service';
 import { Schedule } from '../../../../api/schedule';
 import { ScheduleService } from '../../../../services/schedule/schedule.service';
 import { FormatTimePipe, FormatTimeDatePipe } from '../../../../pipes/format-time.pipe';
-
+import { AuthService } from '../../../../services/auth/auth.service';
 @Component({
   selector: 'app-schedule',
   standalone: true,
@@ -16,6 +16,7 @@ import { FormatTimePipe, FormatTimeDatePipe } from '../../../../pipes/format-tim
 })
 export class ScheduleComponent implements OnInit {
   title = 'Schedule';
+  head_title: string | undefined;
 
   schedule_week = false;
   schedule_day = true;
@@ -30,12 +31,14 @@ export class ScheduleComponent implements OnInit {
 
   schedule_data: Schedule[] = [];
 
-  constructor(private scheduleService: ScheduleService){}
+  constructor(private scheduleService: ScheduleService, private authService: AuthService){}
 
+  
   ngOnInit(): void {
     this.scheduleService.getAllSchedules().subscribe((data) => {
       this.schedule_data = data;
       console.log(this.schedule_data);
     });
+    this.head_title = this.authService.getRole() + " Schedule";
   }
 }

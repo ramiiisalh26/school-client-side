@@ -2,9 +2,16 @@ import { Routes } from '@angular/router';
 import { hasRoleGuardService } from './services/has_role_guard/has-role-guard.service';
 
 export const routes: Routes = [
+    // {
+    //     path: '/',
+    //     pathMatch: 'full',
+    //     loadComponent: () => {
+    //         return import('./components/dashboard/dashboard.component').then((m)=> m.DashboardComponent)
+    //     },
+    // },
     {
-        path: 'dashboard',
-        // pathMatch: 'full',
+        path: 'dashboard/login',
+        pathMatch: 'full',
         loadComponent: () => {
             return import('./components/dashboard/dashboard.component').then((m)=> m.DashboardComponent)
         },
@@ -15,10 +22,10 @@ export const routes: Routes = [
         loadComponent: () => {
             return import('./components/dashboard/admin/admin.component').then((m) => m.AdminComponent);
         },
-        canActivate: [hasRoleGuardService],
-        data: {
-            role: ['ADMIN']
-        }
+        // canActivate: [hasRoleGuardService],
+        // data: {
+        //     role: ['ADMIN']
+        // }
     },
     {
         path: "dashboard/teacher",
@@ -42,5 +49,27 @@ export const routes: Routes = [
         //     role: ['STUDENT']
         // }
     },
+    {
+        path: "list/teachers",
+        pathMatch: "full",
+        loadComponent: () => {
+            return import('./components/dashboard/teachers/teachers.component').then((m) => m.TeachersComponent);
+        },
+        // canActivate: [hasRoleGuardService],
+        // data: {
+        //     role: ['TEACHER','ADMIN']
+        // }
+    },
+    {
+        path: "details/:id",
+        pathMatch: "full",
+        loadComponent: () => {
+            return import('./components/dashboard/details/details.component').then((m) => m.DetailsComponent);
+        },
+        // canActivate: [hasRoleGuardService],
+        // data: {
+        //     role: ['TEACHER','ADMIN']
+        // }
+    }
 
 ];

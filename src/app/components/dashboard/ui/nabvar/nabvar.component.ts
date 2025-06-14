@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nabvar',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './nabvar.component.scss'
 })
 export class NabvarComponent {
-
+  @Input() role: String | undefined;
 }

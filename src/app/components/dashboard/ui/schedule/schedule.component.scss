@@ -4,8 +4,8 @@ body {
 }
 
 .schedule-wrapper {
-    width: 68%;
-    height: 65.5em;
+    // width: 68%;
+    // height: 120vh;
     /* margin: 0 auto; */
     position: absolute;
     top: 77px;
@@ -55,7 +55,16 @@ body {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
+    height: 96%;
+    // overflow-y: scroll;
+
 }
+.grid-header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
 .grid-header, .grid-hour {
     background: #f6f7fa;
     color: #222;
@@ -97,7 +106,7 @@ body {
     font-size: 1rem;
     // cursor: move;
     user-select: none;
-    z-index: 2;
+    // z-index: 2;
     border-radius: 10px;
     margin: 4px 6px;
     position: relative;
@@ -136,11 +145,12 @@ body {
 }
 
 .day-schedule-wrapper {
-    max-width: 1100px;
+    min-width: 1062px;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.06);
-    // overflow-y: hidden;
+    height: 96%;
+    overflow-y: scroll;
 
 }
 .day-row {

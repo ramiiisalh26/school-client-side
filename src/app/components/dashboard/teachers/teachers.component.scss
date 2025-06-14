@@ -1,0 +1,83 @@
+.main{
+    position: absolute;
+    width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    left: 230px;
+    height: 100vh;
+    background: var(--lamaSkyLight);
+    transition: 0.5s;
+}
+.recentOrders{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 99%;
+    max-height: 90vh;
+    background: var(--lamaSkyLight);
+    transition: 0.5s;
+    padding: 20px;
+    background: white;
+    overflow: hidden;
+    .cardHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        h1{
+            font-size: 20px;
+            color: #333;
+            width: 130px;
+        }
+        .search{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            .input{
+                width: 17%;                    /* w-full */
+                display: flex;                  /* flex */
+                align-items: center;            /* items-center */
+                gap: 0.5rem;                    /* gap-2 = 8px */
+                font-size: 0.75rem;             /* text-xs = 12px */
+                border-radius: 9999px;          /* rounded-full */
+                padding-left: 0.5rem;           /* px-2 = 8px */
+                padding-right: 0.5rem;
+                box-shadow: 0 0 0 1.5px #d1d5db;
+                img{
+                    cursor: pointer;
+                }
+            .search-input{
+                width: 200px;           /* w-[200px] */
+                padding: 0.5rem;        /* p-2 = 0.5rem */
+                background-color: transparent;  /* bg-transparent */
+                outline: none;
+                border: none;
+                
+            }
+            .icons{
+                display: flex;
+                align-items: center;
+                gap: 1rem; /* gap-4 = 1rem */
+                align-self: flex-end;
+                .sort,
+                .filter{
+                    width: 2.5rem;              
+                    height: 2.5rem;             
+                    display: flex;
+                    align-items: center;      
+                    justify-content: center;  /* horizontal centering */
+                    border-radius: 9999px;    /* rounded-full */
+                    background-color: var(--lamaYellow);
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+}
+}

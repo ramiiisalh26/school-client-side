@@ -6,7 +6,7 @@ import { AnnouncementComponent } from '../ui/announcement/announcement.component
 
 @Component({
   selector: 'app-teacher',
-  imports: [MenuComponent,NabvarComponent,CalendarComponent,AnnouncementComponent],
+  imports: [CalendarComponent,AnnouncementComponent],
   templateUrl: './teacher.component.html',
   styleUrl: './teacher.component.scss'
 })
@@ -24,7 +24,7 @@ export class TeacherComponent {
         {
           icon: "/teacher.png",
           label: "Teachers",
-          href: "/list/teachers",
+          href: "/dashboard/teacher/teachers",
           visible: ["admin", "teacher"],
         },
         {

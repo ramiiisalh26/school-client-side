@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,RouterModule } from '@angular/router';
 import { StudentService } from './services/student/student.service';
 import { Student } from './api/student';
 import { TeacherService } from './services/teacher/teacher.service';
@@ -19,7 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [ 
       RouterOutlet, 
       DashboardComponent,
-      RouterOutlet, 
+      RouterModule, 
       DashboardComponent
     ],
   templateUrl: './app.component.html',

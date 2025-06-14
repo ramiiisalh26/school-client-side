@@ -12,8 +12,6 @@ import { AnnouncementComponent } from '../ui/announcement/announcement.component
   selector: 'app-admin',
   imports: [
     UserCardComponent,
-    MenuComponent, 
-    NabvarComponent, 
     CountChartComponent, 
     AttendanceChartComponent, 
     FinanceChartComponent, 
