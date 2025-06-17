@@ -15,7 +15,7 @@ export class AuthService {
   private userSubject = new BehaviorSubject<tokenInfo | null>(null);
   private _tokenInfo = this.userSubject.asObservable();
 
-  private username: String | undefined;
+  private username!: String | null;
   private role: String | undefined;
   private expireDate: Date | undefined;
   private isAuthenticated: boolean = false;
@@ -38,7 +38,7 @@ export class AuthService {
     return this.httpClient.post(`${this.baseUrl}/logout`,{},{withCredentials: true});
   }
 
-  public getUsername(): String | undefined{
+  public getUsername(): String | null{
     return this.username;
   }
 

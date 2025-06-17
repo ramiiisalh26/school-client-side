@@ -7,6 +7,7 @@ export interface Schedule {
     studentGroupOrTeacherCode: String;
     idx_x: number;
     idx_y: number;
+    class_name: string;
     duration: number;
     semester: number;
     department: String;

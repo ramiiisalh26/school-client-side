@@ -10,7 +10,13 @@
     height: 129vh;
     background: var(--lamaSkyLight);
     transition: 0.5s;
-
+    .middle{
+        position: absolute;
+        left: 10px;
+        top: 75px;
+        width: 68%;
+        min-height: 120vh;
+    }
     .right{
         position: absolute;
         top: 60px;

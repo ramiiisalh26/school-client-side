@@ -12,17 +12,19 @@
     height: 130vh;
     background: var(--lamaSkyLight);
     transition: 0.5s;
-
+    .middle{
+        position: absolute;
+        left: 10px;
+        top: 75px;
+        width: 68%;
+        min-height: 120vh;
+    }
     .right{
         position: absolute;
         top: 60px;
         right: 0;
         width: 30.5%;
-        min-height: 100vh;
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        // flex-direction: column;
+        min-height: 123vh;
         background: var(--lamaSkyLight);
         transition: 0.5s;
     }

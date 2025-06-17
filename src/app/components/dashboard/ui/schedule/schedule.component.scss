@@ -8,12 +8,15 @@ body {
     // height: 120vh;
     /* margin: 0 auto; */
     position: absolute;
-    top: 77px;
-    left: 13px;
+    // position: absolute;
+    top: 0;
+    left: 0;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.06);
     padding: 32px 32px 24px 32px;
+    width: 100%;
+    min-height: 100%;
 }
 
 .schedule-header {
@@ -200,6 +203,7 @@ body {
     color: #888;
     margin-bottom: 2px;
 }
+.class-name-day,
 .course-name-day {
     font-weight: 600;
     font-size: 1rem;

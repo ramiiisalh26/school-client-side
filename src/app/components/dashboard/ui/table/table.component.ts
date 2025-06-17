@@ -46,5 +46,6 @@ export class TableComponent {
   ];
   @Input() teachers: Teacher[] = [];
   @Input() Label: string[] = [];
+  @Input() role!: String;
   
 }

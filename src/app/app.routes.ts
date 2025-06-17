@@ -70,6 +70,13 @@ export const routes: Routes = [
         // data: {
         //     role: ['TEACHER','ADMIN']
         // }
+    },
+    {
+        path: "formModal/:id",
+        pathMatch: "full",
+        loadComponent: () =>{
+            return import('./components/dashboard/ui/form-module/form-module.component').then((m) => m.FormModuleComponent)
+        },
     }
 
 ];

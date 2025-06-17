@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuComponent } from '../ui/menu/menu.component';
 import { NabvarComponent } from '../ui/nabvar/nabvar.component';
 import { CalendarComponent } from '../ui/calendar/calendar.component';
 import { AnnouncementComponent } from '../ui/announcement/announcement.component';
+import { DetailsComponent } from '../details/details.component';
+import { ScheduleComponent } from "../ui/schedule/schedule.component";
+import { AuthService } from '../../../services/auth/auth.service';
+import { Teacher } from '../../../api/teacher';
+import { TeacherService } from '../../../services/teacher/teacher.service';
+import { ScheduleService } from '../../../services/schedule/schedule.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-teacher',
-  imports: [CalendarComponent,AnnouncementComponent],
+  imports: [CalendarComponent, AnnouncementComponent, ScheduleComponent,CommonModule],
   templateUrl: './teacher.component.html',
   styleUrl: './teacher.component.scss'
 })
-export class TeacherComponent {
+export class TeacherComponent implements OnInit{
   menuItems = [
     {
       title: "MENU",
@@ -125,4 +132,19 @@ export class TeacherComponent {
       ],
     },
   ];
+
+  teacher_code!: String | null;
+  teacher_info: Teacher | undefined;
+  username!: String | null;
+  constructor(private authservices: AuthService, private teacherServices: TeacherService, private scheduleServices: ScheduleService){}
+  
+  ngOnInit(): void {
+    this.username = this.authservices.getUsername();
+    // this.teacherServices.getTeacherByUsername(this.username!).subscribe({
+    //   next: (res) => {
+    //     this.teacher_code = res.teacher_id;
+    //   }
+    // })
+    
+  }
 }

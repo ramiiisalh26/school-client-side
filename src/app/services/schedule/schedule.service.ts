@@ -20,8 +20,15 @@ export class ScheduleService {
     return this.httpClient.get<Schedule[]>(`${this.baseUrl}/all`);
   }
 
-  
+  getScheduleByStudentGroup(student_group: String): Observable<Schedule[]>{
+    return this.httpClient.get<Schedule[]>(`${this.baseUrl}/studentGroup/${student_group}`)
+  }
+
+  getScheduleOfTeacher(teacher_code: String): Observable<Schedule[]>{
+    return this.httpClient.get<Schedule[]>(`${this.baseUrl}/scheduleOfTeacher/${teacher_code}`);
+  }
   
   
   
 }
+ 

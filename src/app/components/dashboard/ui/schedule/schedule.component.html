@@ -100,13 +100,10 @@
         <div class="grid-cell" style="grid-row:12;grid-column:5;"></div>
         <div class="grid-cell" style="grid-row:12;grid-column:6;"></div>
         <!-- Example subject blocks -->
-        <div class="course-week" 
-            *ngFor="let schedule of schedule_data"
-            [ngStyle]="{'--color':'#e3f2fd', 'grid-column':schedule.idx_x, 'grid-row':schedule.idx_y, 'height': '100%'}"
-            >
-            
+        <div class="course-week" *ngFor="let schedule of schedule_week_data"
+            [ngStyle]="{'--color':'#e3f2fd', 'grid-column':schedule.idx_x, 'grid-row':schedule.idx_y, 'height': '100%'}">
             <span class="course-week-time">{{schedule.startTime | formatTimeDate}} – {{schedule.endTime | formatTimeDate}}</span>
-            <span class="course-week-name">{{schedule.coursesName}}</span>
+            <span class="course-week-name">{{schedule.coursesName}} ({{schedule.class_name}})</span>
             <div class="resize-handle"></div>
         </div>
         
@@ -114,72 +111,104 @@
     <div class="day-schedule-wrapper" [ngClass]="{'hide': schedule_day}" id="day-schedule-wrapper">
         <div class="day-row">
             <div class="day-hour">8:00 AM</div>
-            <div class="day-cell">
+            <div class="day-cell"  *ngIf="schedule_day_data.get('08:00')">
                 <div class="course" style="--color:#e3f2fd;">
-                    <span class="course-time-day ">8:00 AM – 8:45 AM</span>
-                    <span class="course-name-day">Math</span>
+                    <span class="course-time-day ">{{schedule_day_data.get('08:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('08:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('08:00')?.coursesName}} ({{schedule_day_data.get('08:00')?.class_name}})</span>
+                    <!-- <span class="class-name-day"> (7A)</span> -->
+
                 </div>
             </div>
         </div>
         <div class="day-row">
             <div class="day-hour">9:00 AM</div>
-            <div class="day-cell">
+            <div class="day-cell" *ngIf="schedule_day_data.get('09:00')">
                 <div class="course" style="--color:#fffde7;">
-                    <span class="course-time-day">9:00 AM – 9:45 AM</span>
-                    <span class="course-name-day">English</span>
+                    <span class="course-time-day">{{schedule_day_data.get('09:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('09:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('09:00')?.coursesName}} ({{schedule_day_data.get('09:00')?.class_name}})</span>
                 </div>
             </div>
         </div>
         <div class="day-row">
             <div class="day-hour">10:00 AM</div>
-            <div class="day-cell">
+            <div class="day-cell" *ngIf="schedule_day_data.get('10:00')">
                 <div class="course" style="--color:#e6e6fa;">
-                    <span class="course-time-day">10:00 AM – 10:45 AM</span>
-                    <span class="course-name-day">Biology</span>
+                    <span class="course-time-day">{{schedule_day_data.get('10:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('10:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('10:00')?.coursesName}} ({{schedule_day_data.get('10:00')?.class_name}})</span>
                 </div>
             </div>
         </div>
         <div class="day-row">
             <div class="day-hour">11:00 AM</div>
-            <div class="day-cell">
+            <div class="day-cell" *ngIf="schedule_day_data.get('11:00')">
                 <div class="course" style="--color:#ffe6ea;">
-                    <span class="course-time-day">11:00 AM – 11:45 AM</span>
-                    <span class="course-name-day">Physics</span>
+                    <span class="course-time-day">{{schedule_day_data.get('11:00')!.startTime | formatTimeDate}}– {{schedule_day_data.get('11:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('11:00')?.coursesName}} ({{schedule_day_data.get('11:00')?.class_name}})</span>
                 </div>
             </div>
         </div>
         <div class="day-row">
             <div class="day-hour">12:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('12:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('12:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('12:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('12:00')?.coursesName}} ({{schedule_day_data.get('12:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
         <div class="day-row">
             <div class="day-hour">1:00 PM</div>
-            <div class="day-cell">
+            <div class="day-cell" *ngIf="schedule_day_data.get('13:00')">
                 <div class="course" style="--color:#e3f2fd;">
-                    <span class="course-time-day">1:00 PM – 1:45 PM</span>
-                    <span class="course-name-day">Chemistry</span>
+                    <span class="course-time-day">{{schedule_day_data.get('13:00')!.startTime | formatTimeDate}}– {{schedule_day_data.get('13:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('13:00')?.coursesName}} ({{schedule_day_data.get('13:00')?.class_name}})</span>
                 </div>
             </div>
         </div>
         <div class="day-row">
             <div class="day-hour">2:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('14:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('14:00')!.startTime | formatTimeDate}}– {{schedule_day_data.get('14:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('14:00')?.coursesName}} ({{schedule_day_data.get('14:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
         <div class="day-row">
             <div class="day-hour">3:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('15:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('15:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('15:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('15:00')?.coursesName}} ({{schedule_day_data.get('15:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
         <div class="day-row">
             <div class="day-hour">4:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('16:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('16:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('16:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('16:00')?.coursesName}} ({{schedule_day_data.get('16:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
         <div class="day-row">
             <div class="day-hour">5:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('19:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('17:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('17:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('17:00')?.coursesName}} ({{schedule_day_data.get('17:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
         <div class="day-row">
             <div class="day-hour">6:00 PM</div>
-            <div class="day-cell"></div>
+            <div class="day-cell" *ngIf="schedule_day_data.get('20:00')">
+                <div class="course" style="--color:#e6e6fa;">
+                    <span class="course-time-day">{{schedule_day_data.get('18:00')!.startTime | formatTimeDate}} – {{schedule_day_data.get('18:00')!.endTime | formatTimeDate}}</span>
+                    <span class="course-name-day">{{schedule_day_data.get('18:00')?.coursesName}} ({{schedule_day_data.get('18:00')?.class_name}})</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

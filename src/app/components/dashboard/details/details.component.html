@@ -17,7 +17,7 @@
                 </div>
                 <div class="info-div">
                     <div class="head">
-                    <h1>Leonard Snyder</h1>
+                    <h1>{{teacher_info?.first_name + " " + teacher_info?.last_name}}</h1>
                 <!-- {role === "admin" && <FormModal
                     table="teacher"
                     type="update"
@@ -51,11 +51,11 @@
                     </div>
                     <div class="info-items">
                         <img src="/mail.png" alt="" width="18" height="18" />
-                        <span>user{{'@'}}gmail.com</span>
+                        <span>{{teacher_info?.email}}</span>
                     </div>
                     <div class="info-items">
                         <img src="/phone.png" alt="" width="18" height="18" />
-                        <span>+1 234 567</span>
+                        <span>+{{teacher_info?.phone}}</span>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
         <div class="bottom-details">
             <!-- <h1>Teacher's Schedule</h1> -->
             <div class="schedule-container">
-                <app-schedule></app-schedule>
+                <app-schedule *ngIf="teacher_info" [teacher_code]="teacher_info.teacher_id" ></app-schedule>
             </div>
         </div>
         </div>
@@ -131,7 +131,7 @@
                 <h1>Shortcuts</h1>
                 <div class="shortcuts-container">
                     <a href="/">
-                        Teacher&apos;s Classes
+                        Teacher's Classes
                     </a>
                     <a href="/">
                         Teacher's Students
@@ -145,7 +145,6 @@
                     <a href="/">
                         Teacher's Assignments
                     </a>
-                    {{teacher_id}}
                 </div>
             </div>
         <!-- <Performance /> -->

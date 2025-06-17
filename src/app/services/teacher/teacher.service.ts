@@ -24,6 +24,10 @@ export class TeacherService {
     return this.httpClient.get<Teacher[]>(`${this.baseUrl}/all`);
   }
 
+  getTeacherByUsername(username: String): Observable<Teacher>{
+    return this.httpClient.get<Teacher>(`${this.baseUrl}/getByUsername/${username}`);
+  }
+
   updateTeacher(teacher_id: number, teacher: Teacher): Observable<Teacher>{
     return this.httpClient.put<Teacher>(`${this.baseUrl}/update/${teacher_id}`,teacher);
   }

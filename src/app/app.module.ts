@@ -13,6 +13,7 @@ import { ScheduleModule
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app.routes";
+import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { AdminComponent } from "./components/dashboard/admin/admin.component";
 import { ScheduleComponent } from "./components/dashboard/ui/schedule/schedule.component";
@@ -21,9 +22,10 @@ import { ScheduleComponent } from "./components/dashboard/ui/schedule/schedule.c
     imports: [
         BrowserModule,HttpClientModule,
         RouterModule.forRoot(routes),
-        ScheduleModule,
+        // ScheduleModule,
         RecurrenceEditorModule,
-        ScheduleModule
+        ScheduleModule,
+        ReactiveFormsModule
     ],
     providers: [DayService, WeekService, MonthService, WorkWeekService, MonthAgendaService],
 })

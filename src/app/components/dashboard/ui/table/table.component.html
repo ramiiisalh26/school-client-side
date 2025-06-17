@@ -38,12 +38,21 @@
             <td>{{teacher.phone}}</td>
             <td>{{teacher.address.street + ', ' + teacher.address.city + ', ' + teacher.address.state + ', ' + teacher.address.country}}</td>
             <td>
-                <div className="flex items-center gap-2">
+                <div class="btn-div">
                     <a [routerLink]="['/details/', teacher.id]">
-                      <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaSky">
-                        <img src="/view.png" alt="" width="16" height="16" />
+                      <button>
+                        <img src="/view.png" alt="" width="0" height="0" />
                       </button>
                     </a>
+                    <a [routerLink]="['/formModal/', teacher.id]">
+                        <button onclick="" >
+                            <img src="/update.png" alt="" width="0" height="0" />
+                        </button>
+                    </a>
+
+                    <button onclick="" *ngIf="role === 'ADMIN'">
+                        <img src="/delete.png" alt="" width="0" height="0" />
+                    </button>
                 </div>
             </td>
         </tr>
