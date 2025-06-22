@@ -14,6 +14,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { routes } from "./app.routes";
 import { ReactiveFormsModule } from "@angular/forms";
+// import {OverlayModule} from "@angular/cdk/overlay";
+// import {PortalModule} from "@angular/cdk/portal"
 import { AppComponent } from "./app.component";
 import { AdminComponent } from "./components/dashboard/admin/admin.component";
 import { ScheduleComponent } from "./components/dashboard/ui/schedule/schedule.component";
@@ -25,7 +27,9 @@ import { ScheduleComponent } from "./components/dashboard/ui/schedule/schedule.c
         // ScheduleModule,
         RecurrenceEditorModule,
         ScheduleModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        // OverlayModule,
+        // PortalModule
     ],
     providers: [DayService, WeekService, MonthService, WorkWeekService, MonthAgendaService],
 })

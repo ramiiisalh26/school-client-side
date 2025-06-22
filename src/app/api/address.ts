@@ -1,8 +1,8 @@
 export interface Address {
-    id: number;
-    street: String;
-    city: String;
-    state: String;
-    zip: String;
-    country: String;
+    id?: number;
+    street: string | null;
+    city: string | null;
+    state: string | null;
+    zip: string | null;
+    country: string | null;
 }

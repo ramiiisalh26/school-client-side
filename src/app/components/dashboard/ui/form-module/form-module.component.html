@@ -1,114 +1,93 @@
-<!-- <div class="main">
-    <form className="flex flex-col gap-8" onSubmit={onSubmit}>
-        <h1 className="text-xl font-semibold">Create a new teacher</h1>
-        <span className="text-xs text-gray-400 font-medium">
-          Authentication Information
-        </span>
-        <div className="flex justify-between flex-wrap gap-4">
-          <InputField
-            label="Username"
-            name="username"
-            defaultValue={data?.username}
-            register={register}
-            error={errors?.username}
-          />
-          <InputField
-            label="Email"
-            name="email"
-            defaultValue={data?.email}
-            register={register}
-            error={errors?.email}
-          />
-          <InputField
-            label="Password"
-            name="password"
-            type="password"
-            defaultValue={data?.password}
-            register={register}
-            error={errors?.password}
-          />
-        </div>
-        <span className="text-xs text-gray-400 font-medium">
-          Personal Information
-        </span>
-        <div className="flex justify-between flex-wrap gap-4">
-          <InputField
-            label="First Name"
-            name="firstName"
-            defaultValue={data?.firstName}
-            register={register}
-            error={errors.firstName}
-          />
-          <InputField
-            label="Last Name"
-            name="lastName"
-            defaultValue={data?.lastName}
-            register={register}
-            error={errors.lastName}
-          />
-          <InputField
-            label="Phone"
-            name="phone"
-            defaultValue={data?.phone}
-            register={register}
-            error={errors.phone}
-          />
-          <InputField
-            label="Address"
-            name="address"
-            defaultValue={data?.address}
-            register={register}
-            error={errors.address}
-          />
-          <InputField
-            label="Blood Type"
-            name="bloodType"
-            defaultValue={data?.bloodType}
-            register={register}
-            error={errors.bloodType}
-          />
-          <InputField
-            label="Birthday"
-            name="birthday"
-            defaultValue={data?.birthday}
-            register={register}
-            error={errors.birthday}
-            type="date"
-          />
-          <div className="flex flex-col gap-2 w-full md:w-1/4">
-            <label className="text-xs text-gray-500">Sex</label>
-            <select
-              className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
-              {...register("sex")}
-              defaultValue={data?.sex}
-            >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-            {errors.sex?.message && (
-              <p className="text-xs text-red-400">
-                {errors.sex.message.toString()}
-              </p>
-            )}
+<ng-template cdkPortal>
+<div class="form-wrapper">
+    <div class="modal" select="[modal-body]">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <h1>Create a new teacher</h1>
+          <span class="head-span">Authentication Information</span>
+          <div class="auth-div">
+            <div class="form-item">
+              <label for="email">E-mail</label>
+              <input type="text" formControlName="email" />
+            </div>
+              <div class="form-item">
+                <label for="password">Password</label>
+                <input type="text" formControlName="password" />
+              </div>
           </div>
-          <div className="flex flex-col gap-2 w-full md:w-1/4 justify-center">
-            <label
-              className="text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
-              htmlFor="img"
-            >
-              <Image src="/upload.png" alt="" width={28} height={28} />
-              <span>Upload a photo</span>
-            </label>
-            <input type="file" id="img" {...register("img")} className="hidden" />
-            {errors.img?.message && (
-              <p className="text-xs text-red-400">
-                {errors.img.message.toString()}
-              </p>
-            )}
+          <span class="head-span">Personal Information</span>
+          <div class="personal-div">
+              <div class="form-item">
+                <label for="firstName">First Name</label>
+                <input type="text" formControlName="first_name" />
+              </div>
+              <div class="form-item">
+                <label for="middleName">Middle Name</label>
+                <input type="text" formControlName="middle_name" />
+              </div>
+              <div class="form-item">
+                <label for="lastName">Last Name</label>
+                <input type="text" formControlName="last_name" />
+              </div>
+              <div class="form-item">
+                <label for="phone">Phone</label>
+                <input type="text" formControlName="phone"/>
+              </div>
+              <div class="form-item">
+                <label for="bloodType">BloodType</label>
+                <input type="text" formControlName="bloodType" />
+              </div>
+              <div class="form-item">
+                <label for="birthday">Birthday</label>
+                <input type="text" formControlName="birthday" />
+              </div>
+              <div class="form-item">
+                <div class="select-div">
+                  <label for="gender" class="sex-label">Gender:</label>
+                    <select id="gender" formControlName="gender">
+                      <option *ngFor="let g of genders" [value]="g.value">{{g.label}}</option>
+                    </select>
+                </div>  
+              </div>
+              <div class="form-item full">
+                <div class="upload-div">
+                  <label class="upload-label" htmlFor="img">
+                    <img [src]="previewUrl || '/upload.png'" alt="" width={28} height={28} (click)="triggerFileInput(fileInput)">
+                    <span>Upload a photo</span>
+                  </label>
+                  <input type="file" #fileInput  accept="image/*" id="img" class="hidden" hidden/>
+                </div>
+              </div>
+            </div>
+          <span class="head-span">Address Info</span>
+          <div formGroupName="address" class="address-div">
+            <div class="form-item">
+              <label for="street">Street</label>
+              <input type="text" formControlName="street" />
+            </div>
+            <div class="form-item">
+              <label for="city">City</label>
+              <input type="text" formControlName="city" />
+            </div>
+            <div class="form-item">
+              <label for="state">State</label>
+              <input type="text" formControlName="state" />
+            </div>  
+            <div class="form-item">
+              <label for="zip">Zip Code</label>
+              <input type="text" formControlName="zip" />
+            </div>
+            <div class="form-item">
+              <label for="country">Country</label>
+              <input type="text" formControlName="country" />
+            </div>
           </div>
+          <button class="btn-submit-update">UPDATE</button>
+        </form>
+        <div class="close-btn">
+          <button (click)="closeModal.emit()">
+            <img src="/close.png" alt="" width="16" height="16" />
+          </button>
         </div>
-        <button className="bg-blue-400 text-white p-2 rounded-md">
-          {type === "create" ? "Create" : "Update"}
-        </button>
-      </form>
-</div> -->
+      </div>
+</div>
+</ng-template>

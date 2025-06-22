@@ -1,10 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Teacher } from '../../../../api/teacher';
 import { RouterModule } from '@angular/router';
+import { FormModuleComponent } from '../form-module/form-module.component';
 @Component({
   selector: 'app-table',
-  imports: [CommonModule,RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormModuleComponent
+],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
@@ -44,8 +49,20 @@ export class TableComponent {
       accessor: "action",
     },
   ];
+
   @Input() teachers: Teacher[] = [];
   @Input() Label: string[] = [];
   @Input() role!: String;
-  
+  teacher_id: String | null | undefined;
+  // type: String | null | undefined;
+  // child
+  isModalOpened = false;
+  openModal(teacherId: String | null | undefined): void {
+    this.teacher_id = teacherId;
+    this.isModalOpened = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpened = false;
+  }
 }

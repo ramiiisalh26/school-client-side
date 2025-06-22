@@ -11,6 +11,9 @@ importers:
       '@angular/animations':
         specifier: ^19.0.0
         version: 19.2.6(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))
+      '@angular/cdk':
+        specifier: ^17.3.0-next.0
+        version: 17.3.10(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@angular/common':
         specifier: ^19.0.0
         version: 19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
@@ -229,6 +232,13 @@ packages:
         optional: true
       tailwindcss:
         optional: true
+
+  '@angular/cdk@17.3.10':
+    resolution: {integrity: sha512-b1qktT2c1TTTe5nTji/kFAVW92fULK0YhYAvJ+BjZTPKu2FniZNe8o4qqQ0pUuvtMu+ZQxp/QqFYoidIVCjScg==}
+    peerDependencies:
+      '@angular/common': ^17.0.0 || ^18.0.0
+      '@angular/core': ^17.0.0 || ^18.0.0
+      rxjs: ^6.5.3 || ^7.4.0
 
   '@angular/cli@19.2.7':
     resolution: {integrity: sha512-ZCLAXIm+ObxGZsO3QfVdrEoa/PV/WIAs7ZT4ejgVNXLq8OVpPXl69cYrFmVdv/OZTkkdxthGR02kn57DQ0FjYg==}
@@ -4673,6 +4683,15 @@ snapshots:
       - terser
       - tsx
       - yaml
+
+  '@angular/cdk@17.3.10(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/common': 19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
+      '@angular/core': 19.2.6(rxjs@7.8.2)(zone.js@0.15.0)
+      rxjs: 7.8.2
+      tslib: 2.8.1
+    optionalDependencies:
+      parse5: 7.2.1
 
   '@angular/cli@19.2.7(@types/node@22.14.0)(chokidar@4.0.3)':
     dependencies:

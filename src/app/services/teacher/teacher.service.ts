@@ -12,12 +12,22 @@ export class TeacherService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addTeacher(teacher: Teacher[]): Observable<Teacher[]>{
-    return this.httpClient.post<Teacher[]>(`${this.baseUrl}/add`,teacher);
+  addTeacher(teacher: Teacher): Observable<Teacher>;
+  addTeacher(teacher: Teacher[]): Observable<Teacher[]>;
+
+  addTeacher(teacher: Teacher | Teacher[]): Observable<Teacher | Teacher[]>{
+    return this.httpClient.post<Teacher>(
+      Array.isArray(teacher) ? `${this.baseUrl}/add-many` : `${this.baseUrl}/add`, teacher
+    );
   }
 
-  getTeacherById(teacher_id: number): Observable<Teacher>{
-    return this.httpClient.get<Teacher>(`${this.baseUrl}/${teacher_id}`);
+
+  getTeacherById(id: number): Observable<Teacher>{
+    return this.httpClient.get<Teacher>(`${this.baseUrl}/${id}`);
+  }
+
+  getTeacherByCode(teacher_code: String): Observable<Teacher>{
+    return this.httpClient.get<Teacher>(`${this.baseUrl}/getByCode/${teacher_code}`)
   }
 
   getAllTeachers(): Observable<Teacher[]>{

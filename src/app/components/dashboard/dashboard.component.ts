@@ -6,6 +6,8 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { MenuComponent } from './ui/menu/menu.component';
 import { NabvarComponent } from './ui/nabvar/nabvar.component';
 import { AuthService } from '../../services/auth/auth.service';
+import { FormModuleComponent } from './ui/form-module/form-module.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = this.authService.getRole();
+    console.log("Hello from dashboard")
   }
 
   menuItems = [
@@ -140,4 +143,13 @@ export class DashboardComponent implements OnInit {
       ],
     },
   ];
+
+  isModalOpened = false;
+  openModal(): void {
+    this.isModalOpened = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpened = false;
+  }
 }

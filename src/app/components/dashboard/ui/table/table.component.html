@@ -36,7 +36,14 @@
                 }
             </td>
             <td>{{teacher.phone}}</td>
-            <td>{{teacher.address.street + ', ' + teacher.address.city + ', ' + teacher.address.state + ', ' + teacher.address.country}}</td>
+            <td>
+                {{
+                    teacher.address?.street + ', ' 
+                    + teacher.address?.city + ', ' 
+                    + teacher.address?.state + ', ' 
+                    + teacher.address?.country
+                }}
+            </td>
             <td>
                 <div class="btn-div">
                     <a [routerLink]="['/details/', teacher.id]">
@@ -44,18 +51,20 @@
                         <img src="/view.png" alt="" width="0" height="0" />
                       </button>
                     </a>
-                    <a [routerLink]="['/formModal/', teacher.id]">
-                        <button onclick="" >
+                    <!-- <a [routerLink]="['/formModal/', teacher.id]"> -->
+                        <button (click)="openModal(teacher.teacher_id)">
                             <img src="/update.png" alt="" width="0" height="0" />
                         </button>
-                    </a>
+                    <!-- </a> -->
 
-                    <button onclick="" *ngIf="role === 'ADMIN'">
+                    <button (click)="''" *ngIf="role === 'ADMIN'">
                         <img src="/delete.png" alt="" width="0" height="0" />
                     </button>
                 </div>
             </td>
         </tr>
-        
     </tbody>
 </table>
+
+<app-form-module *ngIf="isModalOpened" (closeModal)="closeModal()" [teacher_id]="teacher_id" [type]="'update'"></app-form-module>
+

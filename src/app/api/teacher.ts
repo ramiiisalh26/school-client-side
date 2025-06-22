@@ -3,15 +3,16 @@ import { Classes } from "./classes";
 import { Courses } from "./courses";
 
 export interface Teacher {
-    id: number;
-    teacher_id: String;
-    first_name: String;
-    middle_name: String;
-    last_name: String;
-    email: String;
-    photo: String;
-    phone: String;
-    courses: Courses[];
-    classes: Classes[];
-    address: Address;
+    id?: number;
+    teacher_id?: string | null;
+    first_name: string | null;
+    middle_name: string | null;
+    last_name: string | null;
+    email: string | null;
+    photo: string | null;
+    phone: string | null;
+    gender: string | null;
+    courses: Courses[] | null;
+    classes: Classes[] | null;
+    address: Address | null;
 }
